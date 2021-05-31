@@ -16,6 +16,7 @@ import kodlama.io.northwind.business.abstracts.ProductService;
 import kodlama.io.northwind.core.utilities.results.DataResult;
 import kodlama.io.northwind.core.utilities.results.Result;
 import kodlama.io.northwind.entities.concretes.Product;
+import kodlama.io.northwind.entities.dtos.ProductWithCategoryDto;
 
 
 @RestController
@@ -36,6 +37,11 @@ public class ProductsController {
 	@GetMapping("/getall")
 	public DataResult<List<Product>> getAll(){
 		return this.productService.getAll();
+	}
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();
 	}
 	
 	@PostMapping("/add")
